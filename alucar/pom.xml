@@ -8,9 +8,9 @@
 
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>org.casadocodigo</groupId>
+	<groupId>org.alucar</groupId>
 
-	<artifactId>casadocodigo</artifactId>
+	<artifactId>alucar</artifactId>
 
 	<version>1.0.0-SNAPSHOT</version>
 
@@ -18,9 +18,10 @@
 
 	<build>
 
-		<finalName>casadocodigo</finalName>
+		<finalName>alucar</finalName>
 
 	</build>
+
 
 	<properties>
 
@@ -34,19 +35,36 @@
 
 	</properties>
 
+
 	<dependencies>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>4.3.0.Final</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>jquery</artifactId>
+			<version>3.3.1</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.directwebremoting</groupId>
+			<artifactId>dwr</artifactId>
+			<version>3.0.2-RELEASE</version>
+			<type>pom</type>
+		</dependency>
+
 
 		<dependency>
 			<groupId>javax.validation</groupId>
 			<artifactId>validation-api</artifactId>
 			<version>1.0.0.GA</version>
 		</dependency>
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-validator</artifactId>
-			<version>4.1.0.Final</version>
-		</dependency>
-
 
 		<dependency>
 

@@ -1,5 +1,7 @@
 package br.com.alucar.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +16,7 @@ import br.com.alucar.Dao.UsuarioDao;
 import br.com.alucar.modelo.Usuario;
 import br.com.alucar.validate.UsuarioValidator;
 @Controller
-public class CadastroUsuController {
+public class CadastroController {
 
 	@Autowired
 	UsuarioDao dao = new UsuarioDao();
@@ -29,6 +31,7 @@ public class CadastroUsuController {
 		return new ModelAndView("cadastroUser");
 	}
 	
+	
 	@RequestMapping("/gravar")
 	public ModelAndView gravar(@Valid Usuario usuario, BindingResult bindingResult) {
 		
@@ -40,5 +43,41 @@ public class CadastroUsuController {
 		dao.gravar(usuario);
 		return null ;
 	}
+	
+	@RequestMapping("/listaUsuario")
+	public ModelAndView listar() {
+		
+		ModelAndView model = new ModelAndView("/updateUser");
+		List<Usuario> usuarios  = dao.lista();
+		model.addObject("usuarios",usuarios);
+		return model; 
+		
+	}
+	
+	@RequestMapping("/alterarUser")
+	public ModelAndView alterar(int id) {
+		ModelAndView modelAndView = new ModelAndView("/alterUser");
+		Usuario usuario = dao.findById(id);
+		modelAndView.addObject("usuario",usuario);
+		return modelAndView;
+	}
+	
+	@RequestMapping("/updateById")
+	public ModelAndView updateById( Usuario usuario) {
+		
+		dao.updateById(usuario);
+		
+		return new ModelAndView ("redirect:listaUsuario");
+	}
+	
+	@RequestMapping("/delete")
+	public ModelAndView delete(int id) {
+		
+		dao.delete(id);
+		
+		return listar();
+	}
+	
+	
 	
 }

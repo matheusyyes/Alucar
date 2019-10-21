@@ -4,6 +4,7 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
+import br.com.alucar.modelo.Motorista;
 import br.com.alucar.modelo.Usuario;
 
 public class UsuarioValidator implements Validator {
@@ -14,7 +15,6 @@ public class UsuarioValidator implements Validator {
 
 	public void validate(Object target, Errors errors) {
 		
-		Usuario usuario = (Usuario) target;
 		
 		ValidationUtils.rejectIfEmpty(errors,"nome" , "fild.required");
 		ValidationUtils.rejectIfEmpty(errors,"email" , "fild.required");
@@ -25,9 +25,7 @@ public class UsuarioValidator implements Validator {
 		ValidationUtils.rejectIfEmpty(errors, "nomeUsu", "fild.required");
 		ValidationUtils.rejectIfEmpty(errors, "senha", "fild.required");
 		
-		if(usuario.isCPF() == false) {
-			ValidationUtils.rejectIfEmpty(errors, "cpf", "fild.invalid");
-		}
+		
 	}
 
 	

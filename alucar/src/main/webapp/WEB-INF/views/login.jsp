@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +10,7 @@
 
 	<form method="post" action="/alucar/login">
 		<div>
-			<label>Usu·rio</label>
+			<label>Usu√°rio</label>
 			<input type="text" placeholder="Usuario" name="user">
 		</div><br/>
 		<div>
