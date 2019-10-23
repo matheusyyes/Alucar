@@ -6,7 +6,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
+import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.NotEmpty;
+import org.hibernate.validator.constraints.br.CNPJ;
+import org.hibernate.validator.constraints.br.CPF;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
 
@@ -16,22 +23,33 @@ public class Motorista {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int Id;
+	@NotEmpty
 	private String nome;
+	@DecimalMin(value = "18")
 	private Integer idade;
 	@DateTimeFormat(iso = ISO.DATE)
+	@NotNull(message = "data obrigátória")
 	private Calendar dataNascimento;
+	@NotEmpty
 	private String sexo;
+	@CPF(message = "Cpf Invalido")
 	private String cpf;
+	@NotEmpty
 	private String rg;
+	@NotEmpty
 	private String telefone;
+	@NotEmpty
 	private String email;
+	@NotEmpty
 	private String status;
+	@NotEmpty
 	private String nunCnh;
+	@NotEmpty
 	private String categoriaCnh;
-	
+	@NotNull(message = "data obrigátória")
 	@DateTimeFormat(iso = ISO.DATE)
 	private Calendar dataCnh;
-	
+	@NotNull(message = "data obrigátória")
 	@DateTimeFormat(iso = ISO.DATE)
 	private Calendar venCnh;
 	
@@ -100,13 +118,13 @@ public class Motorista {
 	}
 
 
-
+	
 	public String getCpf() {
 		return cpf;
 	}
 
 
-
+	
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}

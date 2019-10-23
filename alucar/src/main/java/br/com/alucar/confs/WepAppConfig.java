@@ -11,11 +11,12 @@ import org.springframework.format.support.FormattingConversionService;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
+import br.com.alucar.Dao.MotoDao;
 import br.com.alucar.Dao.UsuarioDao;
 import br.com.alucar.controller.LoginController;
 
 @EnableWebMvc
-@ComponentScan(basePackageClasses = {LoginController.class,UsuarioDao.class})
+@ComponentScan(basePackageClasses = {LoginController.class,UsuarioDao.class,MotoDao.class})
 public class WepAppConfig {
 	
 	@Bean
